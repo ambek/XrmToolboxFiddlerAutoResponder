@@ -134,12 +134,12 @@
   <ItemGroup>
     <Compile Include="GenerateFiddlerRules.cs" />
     <Compile Include="Model\AutoResponder.cs" />
-    <Compile Include="MyPlugin.cs" />
-    <Compile Include="MyPluginControl.cs">
+    <Compile Include="FiddlerAutoResponderPlugin.cs" />
+    <Compile Include="FiddlerAutoResponderPluginControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MyPluginControl.designer.cs">
-      <DependentUpon>MyPluginControl.cs</DependentUpon>
+    <Compile Include="FiddlerAutoResponderPluginControl.designer.cs">
+      <DependentUpon>FiddlerAutoResponderPluginControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -150,8 +150,8 @@
     <None Include="Properties\DataSources\FiddlerAutoResponder.Model.Rule.datasource" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MyPluginControl.resx">
-      <DependentUpon>MyPluginControl.cs</DependentUpon>
+    <EmbeddedResource Include="FiddlerAutoResponderPluginControl.resx">
+      <DependentUpon>FiddlerAutoResponderPluginControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

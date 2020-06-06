@@ -16,13 +16,13 @@ using System.IO;
 
 namespace FiddlerAutoResponder
 {
-    public partial class MyPluginControl : PluginControlBase
+    public partial class FiddlerAutoResponderPluginControl : PluginControlBase
     {
         private Settings mySettings;
         private List<string> Paths;
         private List<Model.Rule> Rules;
 
-        public MyPluginControl()
+        public FiddlerAutoResponderPluginControl()
         {
             InitializeComponent();
         }
@@ -35,14 +35,11 @@ namespace FiddlerAutoResponder
             if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
             {
                 mySettings = new Settings();
-
-                LogWarning("Settings not found => a new settings file has been created!");
             }
             else
             {
-                LogInfo("Settings found and loaded");
                 Paths = mySettings.Paths;
-                PathListBox.Items.AddRange(Paths.ToArray());
+                PathListBox.Items .AddRange(Paths.ToArray());
             }
         }
 
@@ -83,12 +80,21 @@ namespace FiddlerAutoResponder
             if (Paths.Any(p => p == PathTextInput.Text))
                 return;
 
-            Paths .Add(PathTextInput.Text);
+            Paths.Add(PathTextInput.Text);
             PathListBox.Items.Clear();
             PathListBox.Items.AddRange(Paths.ToArray());
             PathTextInput.Text = null;
         }
 
+        private void RemoveItemButton_Click(object sender, EventArgs e)
+        {
+            foreach (object item in PathListBox.CheckedItems)
+            { 
+                Paths.Remove(item as string);
+            }
+            PathListBox.Items.Clear();
+            PathListBox.Items.AddRange(Paths.ToArray());
+        }
 
         private string SelectPathDialog()
         {
@@ -138,5 +144,6 @@ namespace FiddlerAutoResponder
             }
             return fileName;
         }
+
     }
 }

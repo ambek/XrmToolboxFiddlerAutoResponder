@@ -1,6 +1,6 @@
 ﻿namespace FiddlerAutoResponder
 {
-    partial class MyPluginControl
+    partial class FiddlerAutoResponderPluginControl
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -44,10 +44,10 @@
             this.SaveButon = new System.Windows.Forms.Button();
             this.RulesDataGridView = new System.Windows.Forms.DataGridView();
             this.filesLabel = new System.Windows.Forms.Label();
-            this.ruleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.matchDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enabledDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ruleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RulesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ruleBindingSource)).BeginInit();
@@ -111,6 +111,8 @@
             // 
             // PathListBox
             // 
+            this.PathListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PathListBox.FormattingEnabled = true;
             this.PathListBox.Location = new System.Drawing.Point(84, 84);
             this.PathListBox.Name = "PathListBox";
@@ -135,6 +137,7 @@
             this.RemoveItemButton.TabIndex = 11;
             this.RemoveItemButton.Text = "Remove";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
+            this.RemoveItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
             // 
             // label2
             // 
@@ -151,7 +154,7 @@
             this.GetFilesButton.Name = "GetFilesButton";
             this.GetFilesButton.Size = new System.Drawing.Size(79, 20);
             this.GetFilesButton.TabIndex = 14;
-            this.GetFilesButton.Text = "Get Files  > ";
+            this.GetFilesButton.Text = "Get Files ";
             this.GetFilesButton.UseVisualStyleBackColor = true;
             this.GetFilesButton.Click += new System.EventHandler(this.GetFilesButton_Click);
             // 
@@ -167,7 +170,11 @@
             // 
             // RulesDataGridView
             // 
+            this.RulesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RulesDataGridView.AutoGenerateColumns = false;
+            this.RulesDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.RulesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RulesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.matchDataGridViewTextBoxColumn,
@@ -176,7 +183,7 @@
             this.RulesDataGridView.DataSource = this.ruleBindingSource;
             this.RulesDataGridView.Location = new System.Drawing.Point(84, 225);
             this.RulesDataGridView.Name = "RulesDataGridView";
-            this.RulesDataGridView.Size = new System.Drawing.Size(835, 150);
+            this.RulesDataGridView.Size = new System.Drawing.Size(1031, 195);
             this.RulesDataGridView.TabIndex = 18;
             // 
             // filesLabel
@@ -187,10 +194,6 @@
             this.filesLabel.Size = new System.Drawing.Size(34, 13);
             this.filesLabel.TabIndex = 16;
             this.filesLabel.Text = "Rules";
-            // 
-            // ruleBindingSource
-            // 
-            this.ruleBindingSource.DataSource = typeof(FiddlerAutoResponder.Model.Rule);
             // 
             // matchDataGridViewTextBoxColumn
             // 
@@ -212,7 +215,11 @@
             this.enabledDataGridViewCheckBoxColumn.HeaderText = "Enabled";
             this.enabledDataGridViewCheckBoxColumn.Name = "enabledDataGridViewCheckBoxColumn";
             // 
-            // MyPluginControl
+            // ruleBindingSource
+            // 
+            this.ruleBindingSource.DataSource = typeof(FiddlerAutoResponder.Model.Rule);
+            // 
+            // FiddlerAutoResponderPluginControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -228,7 +235,7 @@
             this.Controls.Add(this.PathTextInput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStripMenu);
-            this.Name = "MyPluginControl";
+            this.Name = "FiddlerAutoResponderPluginControl";
             this.Size = new System.Drawing.Size(1140, 444);
             this.Load += new System.EventHandler(this.MyPluginControl_Load);
             this.toolStripMenu.ResumeLayout(false);
